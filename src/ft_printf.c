@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 04:49:32 by iuolo             #+#    #+#             */
-/*   Updated: 2019/12/28 19:32:44 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/08 01:49:44 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 // }
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int		ft_printf(const char *format, ...)
 {
@@ -47,5 +48,7 @@ int		ft_printf(const char *format, ...)
 	va_start(ptr.vl, format);
 	pf_cycle(&ptr);	
 	va_end(ptr.vl);
+
+	printf ("\nwidth = %d, point = %d, len = %d\n", ptr.width, ptr.point, ptr.length);
 	return (ptr.res);
 }
