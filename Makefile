@@ -6,7 +6,7 @@
 #    By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/28 18:55:55 by iuolo             #+#    #+#              #
-#    Updated: 2020/01/07 21:46:34 by iuolo            ###   ########.fr        #
+#    Updated: 2020/01/13 22:59:01 by iuolo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ OBJ_DIR     = ./obj
 
 HEADERS     = ft_printf.h
 SOURCES     = ft_printf.c \
-			  pf_cycle.c
+			  pf_cycle.c \
+			  pf_repeat.c \
+			  pf_output_esc.c \
+			  pf_output_chr.c \
+			  pf_output_str.c \
+			  pf_putchar.c \
+			  pf_putnstr.c 
 
 LIBFT       = ./libft
 CC          = gcc

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pf_output_chr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/28 18:31:14 by iuolo             #+#    #+#             */
-/*   Updated: 2019/12/28 18:33:16 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/13 19:36:34 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/13 19:48:52 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main(void)
+void	pf_output_chr(t_print *ptr)
 {
-    ft_printf("hello, world");
-    return(0);
+	char	c;
+	
+	c = (char)va_arg(ptr->vl, int);
+	if (ptr->minus)
+	{
+		pf_putchar(ptr, c);
+		pf_repeat(ptr, ' ', ptr->width - 1);
+	}
+	else
+	{
+		pf_repeat(ptr, ' ', ptr->width - 1);
+		pf_putchar(ptr, c);
+	}
 }

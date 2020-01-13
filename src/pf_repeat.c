@@ -1,15 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
+/*   pf_repeat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 18:38:46 by iuolo             #+#    #+#             */
-/*   Updated: 2019/12/28 18:29:51 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/13 19:14:38 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/13 19:22:54 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "ft_printf.h"
 
-char read(va_list vl, ...)
+void	pf_repeat(t_print *ptr, char c, int len)
+{
+	while (len > 0)
+	{
+		pf_putchar(ptr, c);
+		len--;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 19:27:25 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/08 01:58:41 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/13 22:52:43 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,16 @@ void	pf_type(t_print *ptr)
 	ptr->i++;
 }
 
+void	pf_output(t_print *ptr)
+{
+	if (ptr->type == '%')
+		pf_output_esc(ptr);
+	else if (ptr->type == 'c')
+		pf_output_chr(ptr);
+	else if (ptr->type == 's')
+		pf_output_str(ptr);
+}
+
 void	pf_cycle(t_print *ptr)
 {
 	char	c;
@@ -130,10 +140,11 @@ void	pf_cycle(t_print *ptr)
 			pf_point(ptr);
 			pf_length(ptr);
 			pf_type(ptr);
+			pf_output(ptr);
 		}
 		else
 		{
-			ft_putchar(c);
+			pf_putchar(ptr, c);
 			ptr->i++;
 		}
 	}

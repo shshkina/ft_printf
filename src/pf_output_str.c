@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   pf_output_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/28 18:52:33 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/13 22:57:22 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/13 19:41:24 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/13 23:02:08 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stdio.h"
 
-int		main(void)
+void	pf_output_str(t_print *ptr)
 {
-	char *str = "Hello!!";
+	char	*str;
+	int		len;
 	
-	ft_printf("|%10s|\n", str);
-	printf("|%10s|\n", str);
-	
-	ft_printf("|%-10s|\n", str);
-	printf("|%-10s|\n", str);
-
-	
-	ft_printf("|%10.4s|\n", str);
-	printf("|%10.4s|\n", str);
-
-	return (0);
+	str = (char *)va_arg(ptr->vl, char *);
+	if (!str)
+		str = "(null)";
+	len = ft_strlen(str);
+	if (ptr->point > 0 && ptr->point < len)
+		len = ptr->point;
+	if (ptr->minus)
+	{
+		pf_putnstr(ptr, str, len);
+		pf_repeat(ptr, ' ', ptr->width - len);
+	}
+	else
+	{
+		pf_repeat(ptr, ' ', ptr->width - len);
+		pf_putnstr(ptr, str, len);	
+	}
 }

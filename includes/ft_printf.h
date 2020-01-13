@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 18:41:38 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/08 01:17:27 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/13 22:58:53 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include "libft.h"
-
 
 typedef enum		e_length
 {
@@ -49,5 +48,12 @@ typedef	struct		s_print
 
 int					ft_printf(const char *format, ...);
 void				pf_cycle(t_print *ptr);
+void				pf_repeat(t_print *ptr, char c, int len);
+void				pf_output_esc(t_print *ptr);
+void				pf_output_sign(t_print *ptr);
+void				pf_output_chr(t_print *ptr);
+void				pf_output_str(t_print *ptr);
+void				pf_putchar(t_print *ptr, char c);
+void				pf_putnstr(t_print *ptr, char *str, int len);
 
 #endif
