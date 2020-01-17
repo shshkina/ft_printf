@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_output_str.c                                    :+:      :+:    :+:   */
+/*   pf_revers.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 19:41:24 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/17 22:44:28 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/17 21:57:48 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/17 21:59:10 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_output_str(t_print *ptr)
+void	pf_revers(t_print *ptr, char *str)
 {
-	char	*str;
 	int		len;
-
-	str = (char *)va_arg(ptr->vl, char *);
-	if (!str)
-		str = "(null)";
+	
 	len = ft_strlen(str);
-	if (ptr->point > 0 && ptr->point < len)
-		len = ptr->point;
-	if (ptr->minus)
-	{
-		pf_putnstr(ptr, str, len);
-		pf_repeat(ptr, ' ', ptr->width - len);
-	}
-	else
-	{
-		pf_repeat(ptr, ' ', ptr->width - len);
-		pf_putnstr(ptr, str, len);
-	}
+	while (len-- > 0)
+		pf_putchar(ptr, str[len]);
 }

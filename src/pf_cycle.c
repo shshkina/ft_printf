@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 19:27:25 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/13 22:52:43 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/18 02:03:19 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	pf_flags(t_print *ptr)
 {
 	char	c;
 
+	ptr->hash = 0;
+	ptr->zero = 0;
+	ptr->minus = 0;
+	ptr->plus = 0;
+	ptr->space = 0;
 	while ((c = ptr->format[ptr->i]))
 	{
 		if (c == '#')
@@ -55,10 +60,10 @@ void	pf_point(t_print *ptr)
 {
 	char	c;
 	
+	ptr->point = 0;	
 	if (ptr->format[ptr->i] == '.')
 	{
 		ptr->i++;
-		ptr->point = 0;
 		while ((c = ptr->format[ptr->i]))
 		{
 			if (c >= '0' && c <= '9')
@@ -124,6 +129,12 @@ void	pf_output(t_print *ptr)
 		pf_output_chr(ptr);
 	else if (ptr->type == 's')
 		pf_output_str(ptr);
+	else if (ptr->type == 'u')
+		pf_output_u(ptr);
+	else if (ptr->type == 'd')
+		pf_output_d(ptr);
+	else if (ptr->type == 'i')
+		pf_output_d(ptr);
 }
 
 void	pf_cycle(t_print *ptr)

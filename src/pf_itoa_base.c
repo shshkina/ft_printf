@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_output_str.c                                    :+:      :+:    :+:   */
+/*   pf_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 19:41:24 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/17 22:44:28 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/15 18:52:20 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/18 02:30:44 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_output_str(t_print *ptr)
+static void	buff_rev(char *buff, int len)
 {
-	char	*str;
+	int		i;
+	char	tmp;
+
+	i = (len / 2);
+	while (i-- > 0)
+	{
+		tmp = buff[i];
+		buff[i] = buff[len - i - 1];
+		buff[len - i - 1] = tmp;
+	}
+}
+
+void		pf_itoa_base(char *buff, unsigned long long n, int base)
+{
 	int		len;
 
-	str = (char *)va_arg(ptr->vl, char *);
-	if (!str)
-		str = "(null)";
-	len = ft_strlen(str);
-	if (ptr->point > 0 && ptr->point < len)
-		len = ptr->point;
-	if (ptr->minus)
+	len = 0;
+	while (n)
 	{
-		pf_putnstr(ptr, str, len);
-		pf_repeat(ptr, ' ', ptr->width - len);
+		buff[len++] = "0123456789abcdef"[n % base];
+		n /= base;
 	}
-	else
-	{
-		pf_repeat(ptr, ' ', ptr->width - len);
-		pf_putnstr(ptr, str, len);
-	}
+	if (len == 0)
+		buff[len++] = '0';
+	buff[len] = '\0';
+	buff_rev(buff, len);
 }

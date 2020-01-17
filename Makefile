@@ -6,7 +6,7 @@
 #    By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/28 18:55:55 by iuolo             #+#    #+#              #
-#    Updated: 2020/01/13 22:59:01 by iuolo            ###   ########.fr        #
+#    Updated: 2020/01/17 23:35:02 by iuolo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,11 @@ SOURCES     = ft_printf.c \
 			  pf_output_esc.c \
 			  pf_output_chr.c \
 			  pf_output_str.c \
+			  pf_output_u.c \
+			  pf_output_d.c \
 			  pf_putchar.c \
-			  pf_putnstr.c 
+			  pf_putnstr.c \
+			  pf_itoa_base.c
 
 LIBFT       = ./libft
 CC          = gcc

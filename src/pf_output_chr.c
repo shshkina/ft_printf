@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 19:36:34 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/13 19:48:52 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/17 22:43:04 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pf_output_chr(t_print *ptr)
 {
 	char	c;
-	
+
 	c = (char)va_arg(ptr->vl, int);
 	if (ptr->minus)
 	{
