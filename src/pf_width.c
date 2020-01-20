@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_output_str.c                                    :+:      :+:    :+:   */
+/*   pf_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 19:41:24 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/20 17:19:43 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/20 16:06:26 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/20 20:29:12 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_output_str(t_print *ptr)
+void	pf_width(t_print *ptr)
 {
-	char	*str;
-	int		len;
+	char	c;
 
-	str = (char *)va_arg(ptr->vl, char *);
-	if (!str)
-		str = "(null)";
-	len = ft_strlen(str);
-	if (ptr->point >= 0 && ptr->point < len)
-		len = ptr->point;
-	if (ptr->minus)
+	ptr->width = 0;
+	if (ptr->format[ptr->i] == '*')
 	{
-		pf_putnstr(ptr, str, len);
-		pf_repeat(ptr, ' ', ptr->width - len);
+		ptr->width = va_arg(ptr->vl, int);
+		ptr->i++;
+		if (ptr->width < 0)
+			ptr->minus = 1;
+		if (ptr->width < 0)
+			ptr->width = -ptr->width;
 	}
-	else
+	c = ptr->format[ptr->i];
+	if (c >= '0' && c <= '9')
+		ptr->width = 0;
+	while ((c = ptr->format[ptr->i]))
 	{
-		pf_repeat(ptr, ' ', ptr->width - len);
-		pf_putnstr(ptr, str, len);
+		if (c >= '0' && c <= '9')
+		{
+			ptr->width = ptr->width * 10 + (c - '0');
+			ptr->i++;
+		}
+		else
+			break ;
 	}
 }

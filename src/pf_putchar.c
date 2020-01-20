@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 18:56:40 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/13 19:00:11 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/20 21:36:17 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	pf_putchar(t_print *ptr, char c)
 {
-	write(1, &c, 1);
-	ptr->res++;
+	if (ptr->bp_i == BUFF_SIZE)
+		pf_print_buff(ptr);
+	ptr->bp[ptr->bp_i++] = c;
 }

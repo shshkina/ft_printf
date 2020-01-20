@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 18:52:20 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/18 02:30:44 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/18 21:37:43 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,20 @@ static void	buff_rev(char *buff, int len)
 	}
 }
 
-void		pf_itoa_base(char *buff, unsigned long long n, int base)
+void		pf_itoa_base(char *buff, unsigned long long n, char *base)
 {
 	int		len;
+	int		len_base;
 
+	len_base = ft_strlen(base);
 	len = 0;
 	while (n)
 	{
-		buff[len++] = "0123456789abcdef"[n % base];
-		n /= base;
+		buff[len++] = base[n % len_base];
+		n /= len_base;
 	}
 	if (len == 0)
-		buff[len++] = '0';
+		buff[len++] = base[0];
 	buff[len] = '\0';
 	buff_rev(buff, len);
 }

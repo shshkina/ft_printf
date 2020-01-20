@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_output_sign.c                                   :+:      :+:    :+:   */
+/*   pf_print_buff.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 18:41:11 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/13 19:41:07 by iuolo            ###   ########.fr       */
+/*   Created: 2020/01/20 21:26:17 by iuolo             #+#    #+#             */
+/*   Updated: 2020/01/20 21:47:41 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_output_sign(t_print *ptr)
+void	pf_print_buff(t_print *ptr)
 {
-
+	if (ptr->bp_i > 0)
+	{
+		write(ptr->fd, ptr->bp, ptr->bp_i);
+		ptr->res += ptr->bp_i;
+	}
+	ptr->bp_i = 0;
 }
