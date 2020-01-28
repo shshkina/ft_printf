@@ -6,7 +6,7 @@
 #    By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/28 18:55:55 by iuolo             #+#    #+#              #
-#    Updated: 2020/01/28 20:46:02 by iuolo            ###   ########.fr        #
+#    Updated: 2020/01/28 22:35:26 by iuolo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SOURCES     = ft_printf.c \
 			  pf_output_p.c \
 			  pf_output_o.c \
 			  pf_output_x.c \
+			  pf_output_f.c \
 			  pf_putchar.c \
 			  pf_putnstr.c \
 			  pf_output_b.c \
