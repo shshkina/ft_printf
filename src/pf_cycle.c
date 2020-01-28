@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 19:27:25 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/20 22:21:09 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/28 20:46:40 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	pf_output(t_print *ptr)
 		pf_output_p(ptr);
 	else if (ptr->type == 'b')
 		pf_output_b(ptr);
+	// else if (ptr->type == 'f')
+	// 	pf_output_f(ptr);
 }
 
 void	pf_cycle(t_print *ptr)

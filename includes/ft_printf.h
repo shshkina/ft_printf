@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 18:41:38 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/20 22:15:40 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/28 20:45:49 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void				pf_width(t_print *ptr);
 void				pf_output_p(t_print *ptr);
 void				pf_print_buff(t_print *ptr);
 void				pf_output_b(t_print *ptr);
+// void				pf_output_f(t_print *ptr);
 void				pf_colour(t_print *ptr);
 
 #endif
