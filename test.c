@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:52:33 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/28 22:58:40 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/30 22:09:06 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ int	main(void)
 
 	// ft_printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}\n", "filename", "str");
 	
-	ft_printf("|%f|\n", 10.0302);
-	printf("|%f|\n", 10.0302);
+	// ft_printf("|%f|\n", 10.0302);
+	// printf("|%f|\n", 10.0302);
+
+	ft_printf("|{%8.f}{%lf}{%Lf}|\n", -1.42, -1.42, 1.42l);
+	printf("|{%8.f}{%lf}{%Lf}|\n", -1.42, -1.42, 1.42l);
 	
  	return (0);
 }

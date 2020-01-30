@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 18:41:38 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/28 20:45:49 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/01/30 20:36:10 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include "libft.h"
-# include <stdio.h>
+# include <stdio.h>		//УБРАТЬ!!1
 
 # define BUFF_SIZE 100
 
@@ -49,6 +49,7 @@ typedef	struct		s_print
 	unsigned int	p_i;
 	char			buff[100];
 	char			bp[BUFF_SIZE];
+	char			buff2[100];
 	int				bp_i;
 	int				fd;
 }					t_print;
@@ -73,7 +74,7 @@ void				pf_width(t_print *ptr);
 void				pf_output_p(t_print *ptr);
 void				pf_print_buff(t_print *ptr);
 void				pf_output_b(t_print *ptr);
-// void				pf_output_f(t_print *ptr);
+void				pf_output_f(t_print *ptr);
 void				pf_colour(t_print *ptr);
 
 #endif
