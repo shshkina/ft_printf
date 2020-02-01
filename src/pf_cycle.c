@@ -6,7 +6,7 @@
 /*   By: iuolo <iuolo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 19:27:25 by iuolo             #+#    #+#             */
-/*   Updated: 2020/01/28 22:35:07 by iuolo            ###   ########.fr       */
+/*   Updated: 2020/02/02 00:43:27 by iuolo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ void	pf_point(t_print *ptr)
 			ptr->point = va_arg(ptr->vl, int);
 			ptr->i++;
 		}
+		c = ptr->format[ptr->i];
+		if (c >= '0' && c <= '9')
+			ptr->point = 0;
 		while ((c = ptr->format[ptr->i]))
-		{
 			if (c >= '0' && c <= '9')
 			{
 				ptr->point = ptr->point * 10 + (c - '0');
@@ -62,7 +64,6 @@ void	pf_point(t_print *ptr)
 			}
 			else
 				break ;
-		}
 	}
 }
 
